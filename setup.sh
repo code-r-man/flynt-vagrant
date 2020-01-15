@@ -42,7 +42,7 @@ cp provision/default.yml site.yml
 # Replace values in a file
 sed -i "s/vccw.test/$PROJECT_URL/g" site.yml &&
 sed -i "s/Hello VCCW./$PROJECT_NAME_SPACED/g" site.yml &&
-sed -i "s/Welcome to the VCCW./$PROJECT_NAME_SPACED/g" site.yml &&
+sed -i "s/Welcome to the VCCW/$PROJECT_NAME_SPACED/g" site.yml &&
 echo ===========================================================================
 echo Done.
 
