@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # SETTINGS
 # Archive name
@@ -10,6 +10,8 @@ STACK_NAME=vccw
 # Get project name
 PROJECT_NAME=$(basename `pwd`)
 readonly PROJECT_NAME
+PROJECT_NAME_CAP="$(echo "$PROJECT_NAME" | sed 's/.*/\u&/')"
+PROJECT_NAME_SPACED=${PROJECT_NAME_CAP/"-"/" "}
 
 # TEMP
 rm -rf $PROJECT_NAME
@@ -39,4 +41,6 @@ cp provision/default.yml site.yml
 
 # Replace values in a file
 sed -i "s/vccw.test/$PROJECT_URL/g" site.yml &&
-sed -i "s/Hello VCCW./$PROJECT_NAME/g" site.yml
+sed -i "s/Hello VCCW./$PROJECT_NAME_SPACED/g" site.yml &&
+sed -i "s/Welcome to the VCCW./$PROJECT_NAME_SPACED/g" site.yml &&
+
